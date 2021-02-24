@@ -97,6 +97,16 @@ namespace DataAcces.Concrete.InMemory
             return _products.Where(p => p.CategoryID == CategoryId).ToList();
         }
 
+        public List<ProductDetailDto> GetProductDetails()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<ProductDetailDto> GetPtoductDetails()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(Product product)
         {
             Product productToUpdate = _products.SingleOrDefault

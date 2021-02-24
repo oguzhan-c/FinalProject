@@ -9,16 +9,52 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            ProductManager productManager = new ProductManager(new  EFProductDal());
+            ProductManagerTest();
+           //ProductDetailsTest();
+        }
 
-            int counter = 0;
-            foreach (var product in productManager.GetAll())
+        private static void ProductDetailsTest()
+        {
+            ProductManager productManager = new ProductManager(new EFProductDal());
+
+            var result = productManager.GetProductDetails();
+
+            if (result.Success == true)
             {
-                Console.WriteLine("Product Name :\t" + product.ProductName );
-                counter += 1;
+                foreach (var product in result.Data)
+                {
+                    Console.WriteLine
+                        (
+                            "Product Id :\t" + product.ProductId + "\n" +
+                            "Product Name :\t" + product.ProductName + "\n" +
+                            "Category Name :\t" + product.CategoryName + "\n" +
+                            "Units In Stock :\t" + product.UnitsInStock + "\n" +
+                            "-----------------------------------------------" + "\n"
+                        );
+                }
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
 
-            Console.WriteLine("Toplam Ürün Sayısı :\t" + counter);
+        private static void ProductManagerTest()
+        {
+            ProductManager productManager = new ProductManager(new EFProductDal());
+            var result = productManager.GetAll();
+
+            if (result.Success == true)
+            {
+                foreach (var product in result.Data)
+                {
+                    Console.WriteLine("Product Name :\t" + product.ProductName);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
         }
     }
 }

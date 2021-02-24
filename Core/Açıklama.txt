@@ -1,0 +1,2 @@
+﻿Core Katmanı Tüm Projede geçerli ve evrenseldir.Yani Cor katmanını başka bir projede kullanılabilir.
+O yüzden buraya tüm projelerde bulunabilecek kodlar yazılır
