@@ -11,7 +11,7 @@ namespace Business.Constans
         //public olanlar pascal case il yazılır yani kelimenin ilk harfi büyük gerisi küçük başkabir kelime gelirse gene ilk harf büyük gerisi küçük
         public static String ProductAdded = "Product Added" ;
         public static string ProductNameInvalid = "Product Name Invaled ";
-        public static String MaintenanceTime = "Sistem Bakımda";
-        public static string ProducstListed;
+        public static String MaintenanceTime = "System overhaul ";
+        public static string ProducstListed = "Products Listed";
     }
 }
