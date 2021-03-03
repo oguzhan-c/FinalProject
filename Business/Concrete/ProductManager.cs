@@ -1,8 +1,12 @@
 ﻿using Business.Constans;
+using Business.ValidationRules.FluentValidation;
+using Core.Asprcts.Autofac.Validation;
+using Core.CrossCuttingConcerns.Validation.FluentValidation;
 using Core.Utilities.Results;
 using DataAcces.Abstruct;
 using Entities;
 using Entitties.DTOs;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,14 +22,11 @@ namespace Business.Concrete
             this.productDal = productDal;
         }
 
+        [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
-            if (product.ProductName.Length<2)
-            {
-                //magic strings
-                return new ErrorResult(Messages.ProductNameInvalid);
-            }
-
+            //business code:örnek bankada kredi verirken bu krediyi alacak kişinin krediyi almaya uygun olup olmama durumu gibi
+            //validation : veri uyumu ile alakalı (isim en az 2 karakter olmalı gbi)
             //business codes
             productDal.Add(product);
 
