@@ -1,4 +1,5 @@
-﻿using DataAcces.Abstruct;
+﻿using Core.Utilities.Results;
+using DataAcces.Abstruct;
 using Entities;
 using System;
 using System.Collections.Generic;
@@ -15,14 +16,14 @@ namespace Business.Concrete
             this.categoryDal = categoryDal;
         }
 
-        public List<Category> GetAll()
+        public IDataResult<List<Category>> GetAll()
         {
-            return categoryDal.GetAll();
+            return new SuccessDataResult<List<Category>>(categoryDal.GetAll());
         }
 
-        public List<Category> GetByCategoryName(int min, int max)
+        public IDataResult<List<Category>> GetByCategoryName(int min, int max)
         {
-            return categoryDal.GetAll(c => c.CategoryName.Length >= min && c.CategoryName.Length <= max);
+            return new SuccessDataResult<List<Category>>(categoryDal.GetAll(c => c.CategoryName.Length >= min && c.CategoryName.Length <= max));
         }
     }
 }

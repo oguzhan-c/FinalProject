@@ -1,13 +1,15 @@
-﻿using Entities;
+﻿using Core.Utilities.Results;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Business.Concrete
 {
-    interface ICategoryService
+    public interface ICategoryService
     {
-        List<Category> GetAll();
-        List<Category> GetByCategoryName(int min, int max);
+        IDataResult<List<Category>> GetAll();
+        IDataResult<List<Category>> GetByCategoryName(int min, int max);
+
     }
 }

@@ -29,7 +29,7 @@ namespace Core.Asprcts.Autofac.Validation
             foreach (var entity in entities)
             {
                 ValidationTool.Validate(validator, entity);
-            }
+            } 
         }
     }
 }
